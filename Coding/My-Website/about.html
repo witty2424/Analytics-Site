@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2025 College Basketball Transfer Portal</title>
+  <style>
+    body { font-family: Arial; background:#f7f7f7; margin:0; padding:0; }
+    nav { background:#004d00; padding:10px; text-align:center; }
+    nav a { color:#fff; text-decoration:none; margin:0 15px; font-weight:bold; }
+    .container { max-width:900px; margin:60px auto 40px; padding:20px; background:#fff; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+    h1 { text-align:center; margin-top:0; font-size:28px; color:#004d00; }
+    #searchInput { width:80%; padding:12px; margin:20px auto; display:block; font-size:16px; border:1px solid #ccc; border-radius:6px; }
+    table { width:100%; border-collapse:collapse; margin-bottom:30px; }
+    th, td { padding:10px; border-bottom:1px solid #ddd; text-align:left; }
+    th { background:#004d00; color:#fff; }
+    tr:hover { background:#f1f1f1; }
+    a { color:#004d00; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="notes-dashboard.html">Notes Dashboard</a>
+  </nav>
+
+  <div class="container">
+    <h1>2025 College Basketball Transfer Portal</h1>
+    <input type="text" id="searchInput" placeholder="Search for a player...">
+
+    <table id="playerTable">
+      <thead>
+        <tr>
+          <th>Player</th><th>PPG</th><th>APG</th><th>RPG</th><th>FG%</th><th>3P%</th><th>FT%</th><th>TOPG</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="note.html?player=Yaxel Lendeborg">Yaxel Lendeborg</a></td>
+          <td>17.7</td><td>4.2</td><td>11.4</td><td>52.2%</td><td>35.7%</td><td>75.7%</td><td>2.2</td>
+        </tr>
+        <tr>
+          <td><a href="note.html?player=P.J. Haggerty">P.J. Haggerty</a></td>
+          <td>21.7</td><td>3.7</td><td>5.8</td><td>47.6%</td><td>36.4%</td><td>81.8%</td><td>3.3</td>
+        </tr>
+        <tr>
+          <td><a href="note.html?player=Bennett Stirtz">Bennett Stirtz</a></td>
+          <td>19.2</td><td>5.7</td><td>4.3</td><td>49.8%</td><td>39.5%</td><td>79.4%</td><td>2.0</td>
+        </tr>
+        <!-- Add the rest of your players here the same way -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const tableRows = document.querySelectorAll('#playerTable tbody tr');
+    searchInput.addEventListener('input', () => {
+      const filter = searchInput.value.toLowerCase();
+      tableRows.forEach(row => {
+        row.style.display = row.cells[0].innerText.toLowerCase().includes(filter) ? '' : 'none';
+      });

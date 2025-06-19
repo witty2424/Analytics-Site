@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Player Notes</title>
+  <style>
+    body { font-family: Arial; background: #f7f7f7; margin: 0; }
+    nav { background: #004d00; padding: 10px; text-align: center; }
+    nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 { color: #004d00; }
+    ul { list-style: none; padding: 0; }
+    li { margin-bottom: 12px; }
+    a { color: #004d00; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      background: #cc0000;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="notes-dashboard.html">Notes Dashboard</a>
+  </nav>
+
+  <div class="container">
+    <h1>Saved Player Notes</h1>
+    <ul id="notesList"></ul>
+  </div>
+
+  <script>
+    const list = document.getElementById('notesList');
+    for (let key in localStorage) {
+      if (key.startsWith('note_')) {
+        const player = key.replace('note_', '');
+        const li = document.createElement('li');
+
+        const link = document.createElement('a');
+        link.href = `note.html?player=${encodeURIComponent(player)}`;
+        link.innerText = player;
+
+        const btn = document.createElement('button');
+        btn.innerText = "Delete";
+        btn.onclick = () => {
+          localStorage.removeItem(key);
+          location.reload();
+        };
+
+        li.appendChild(link);
+        li.appendChild(btn);
+        list.appendChild(li);
+      }
+    }
+  </script>
+</body>
+</html>

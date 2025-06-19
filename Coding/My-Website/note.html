@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Player Notes</title>
+  <style>
+    body { font-family: Arial; background: #f7f7f7; margin: 0; }
+    nav { background: #004d00; padding: 10px; text-align: center; }
+    nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 { color: #004d00; }
+    textarea {
+      width: 100%;
+      height: 300px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #004d00;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="notes-dashboard.html">Notes Dashboard</a>
+  </nav>
+
+  <div class="container">
+    <h1 id="playerName">Player Notes</h1>
+    <textarea id="noteInput" placeholder="Type your notes here..."></textarea><br>
+    <button onclick="saveNote()">Save Note</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const player = params.get("player");
+    document.getElementById("playerName").innerText = player;
+    const textarea = document.getElementById("noteInput");
+
+    const saved = localStorage.getItem("note_" + player);
+    if (saved) textarea.value = saved;
+
+    function saveNote() {
+      localStorage.setItem("note_" + player, textarea.value);
+      alert("Note saved!");
+    }
+  </script>
+</body>
+</html>

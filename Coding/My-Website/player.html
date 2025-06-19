@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Player Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px auto;
+      max-width: 600px;
+      padding: 20px;
+    }
+    h2 {
+      color: #004d00;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="playerName">Player</h2>
+  <textarea id="notesBox" placeholder="Type your notes here..."></textarea>
+  <button onclick="saveNotes()">💾 Save Notes</button>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const playerName = params.get('name');
+    const playerHeading = document.getElementById('playerName');
+    const notesBox = document.getElementById('notesBox');
+
+    if (playerName) {
+      playerHeading.textContent = playerName;
+      const saved = localStorage.getItem(`notes-${playerName}`);
+      if (saved) notesBox.value = saved;
+    }
+
+    function saveNotes() {
+      localStorage.setItem(`notes-${playerName}`, notesBox.value);
+      alert("Notes saved!");
+    }
+  </script>
+</body>
+</html>
+
+  <div class="container">
+    <h1>2025 College Basketball Transfer Portal</h1>
+    <input type="text" id="searchInput" placeholder="Search for a player...">
+
+    <table id="playerTable">
+      <thead>
+        <tr>
+          <th>Player</th><th>PPG</th><th>APG</th><th>RPG</th><th>FG%</th><th>3P%</th><th>FT%</th><th>TOPG</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="player.html?player=Yaxel%20Lendeborg">Yaxel Lendeborg</a></td>
+          <td>17.7</td><td>4.2</td><td>11.4</td><td>52.2%</td><td>35.7%</td><td>75.7%</td><td>2.2</td>
+        </tr>
+        <tr>
+          <td><a href="player.html?player=P.J.%20Haggerty">P.J. Haggerty</a></td>
+          <td>21.7</td><td>3.7</td><td>5.8</td><td>47.6%</td><td>36.4%</td><td>81.8%</td><td>3.3</td>
+        </tr>
+        <!-- Add other players in the same format -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const tableRows = document.querySelectorAll('#playerTable tbody tr');
+    searchInput.addEventListener('input', () => {
+      const filter = searchInput.value.toLowerCase();
+      tableRows.forEach(row => {
+        row.style.display = row.cells[0].innerText.toLowerCase().includes(filter) ? '' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: grey;
+  padding: 20px;
+  
+  font-family: Arial, sans-serif;
+  background-color: grey;
+
+  /* Add background image here */
+  background-image: url('USF ANALYTICS HP.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 20px;
+
+  /* Center content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  margin: 0;
+  flex-direction: column;
+  text-align: center;
+
+  /* Center content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+  text-align: center;
+  
+  
+}
+h1 {
+  color: white;
+  text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+p {
+  font-size: 18px;
+  color: white;
+  text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+/* 🔽 Add this for the image with 40% opacity */
+.transparent-img {
+  opacity: 0.4;
+  width: 1000px;   /* You can adjust this size */
+  height: auto;
+  margin-top: 20px;
+}
+
+
+body.about {
+  background-color: #006450;
+  background-image: url('about.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #006450;
+}
+
+body.contact {
+  background-color: #006450;
+  background-image: url('contact.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #006450;
+}
+
+nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: #004d00; /* dark green tab color */
+  border-radius: 5px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+nav a:hover {
+  background-color: #006600;
+}
+
+table {
+  width: 80%;
+  margin-top: 40px;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #333;
+  color: white;
+}
